@@ -33,16 +33,16 @@ order by
  
  -- Questão 3 OK!
  
- select R.TABLE_NAME, U.COLUMN_NAME
-from INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE u
-inner join INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS FK
-    on U.CONSTRAINT_CATALOG = FK.UNIQUE_CONSTRAINT_CATALOG
-    and U.CONSTRAINT_SCHEMA = FK.UNIQUE_CONSTRAINT_SCHEMA
-    and U.CONSTRAINT_NAME = FK.UNIQUE_CONSTRAINT_NAME
-inner join INFORMATION_SCHEMA.KEY_COLUMN_USAGE R
-    ON R.CONSTRAINT_CATALOG = FK.CONSTRAINT_CATALOG
-    AND R.CONSTRAINT_SCHEMA = FK.CONSTRAINT_SCHEMA
-    AND R.CONSTRAINT_NAME = FK.CONSTRAINT_NAME;
+ select r.table_name, u.column_name
+from information_schema.constraint_column_usage u
+inner join information_schema.referential_constraints fk
+    on u.constraint_catalog = fk.unique_constraint_catalog
+    and u.constraint_schema = fk.unique_constraint_schema
+    and u.constraint_name = fk.unique_constraint_name
+inner join information_schema.key_column_usage r
+    on r.constraint_catalog = fk.constraint_catalog
+    and r.constraint_schema = fk.constraint_schema
+    and r.constraint_name = fk.constraint_name;
     
 -- Questão 4
     
